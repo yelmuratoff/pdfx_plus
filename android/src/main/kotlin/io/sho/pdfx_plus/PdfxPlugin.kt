@@ -1,12 +1,12 @@
-package io.scer.pdfx
+package io.sho.pdfx_plus
 
 import android.annotation.TargetApi
 import android.os.Build
 import androidx.annotation.NonNull
 import dev.flutter.pigeon.Pigeon
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.scer.pdfx.resources.DocumentRepository
-import io.scer.pdfx.resources.PageRepository
+import io.sho.pdfx_plus.resources.DocumentRepository
+import io.sho.pdfx_plus.resources.PageRepository
 
 /**
  * PdfxPlugin

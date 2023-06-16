@@ -1,4 +1,4 @@
-package io.scer.pdfx.utils
+package io.sho.pdfx_plus.utils
 
 import android.graphics.Bitmap
 

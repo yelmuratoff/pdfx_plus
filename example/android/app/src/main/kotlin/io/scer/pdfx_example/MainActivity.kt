@@ -1,4 +1,4 @@
-package io.scer.pdf_renderer_example
+package io.sho.pdf_renderer_example
 
 import io.flutter.embedding.android.FlutterActivity
 

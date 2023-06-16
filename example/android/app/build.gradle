@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "io.scer.pdfx_example"
+        applicationId "io.sho.pdfx_plus_example"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
