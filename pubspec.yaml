@@ -2,7 +2,7 @@ name: pdfx_plus
 description: Flutter plugin to render & show PDF pages as images on Web, MacOS, Windows, Android and iOS.
 repository: https://github.com/K1yoshiSho/pdfx_plus.git
 issue_tracker: https://github.com/K1yoshiSho/pdfx_plus/issues
-version: 0.0.1
+version: 0.0.3
 
 environment:
   sdk: '>=3.0.3 <4.0.0'

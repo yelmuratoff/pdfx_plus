@@ -534,16 +534,17 @@ class _PdfViewPinchState extends State<PdfViewPinch> with SingleTickerProviderSt
           child: Container(
             width: page.rect!.width,
             height: page.rect!.height,
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 250, 250, 250),
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromARGB(28, 0, 0, 0),
-                  blurRadius: 4,
-                  offset: Offset(2, 2),
+            decoration: widget.backgroundDecoration ??
+                const BoxDecoration(
+                  color: Color.fromARGB(255, 250, 250, 250),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(28, 0, 0, 0),
+                      blurRadius: 4,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
                 ),
-              ],
-            ),
             child: Stack(
               children: [
                 ValueListenableBuilder<int>(
