@@ -265,7 +265,8 @@ class InteractiveScrollViewerState extends State<InteractiveScrollViewer> {
         if (widget.onDoubleTapZoomInvoked != null) {
           offset = widget.onDoubleTapZoomInvoked!(offset, _tapPosition);
         }
-        scrollTo(Offset(0, offset.dy));
+
+        scrollTo(Offset(0, (offset.dy < 0 ? 0 : offset.dy)));
       }
     }
   }
