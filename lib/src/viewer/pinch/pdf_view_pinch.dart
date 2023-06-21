@@ -8,7 +8,6 @@ import 'package:pdfx_plus/src/renderer/interfaces/page.dart';
 import 'package:pdfx_plus/src/viewer/base/base_pdf_builders.dart';
 import 'package:pdfx_plus/src/viewer/base/base_pdf_controller.dart';
 import 'package:pdfx_plus/src/viewer/interactive_scroll_viewer.dart';
-import 'package:pdfx_plus/src/viewer/interactive_viewer.dart';
 import 'package:pdfx_plus/src/viewer/wrappers/pdf_texture.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:vector_math/vector_math_64.dart' as math64;
@@ -92,7 +91,7 @@ class _PdfViewPinchState extends State<PdfViewPinch> with SingleTickerProviderSt
     _controller._attach(this);
     _animController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 100),
     );
     widget.controller.loadingState.addListener(() {
       switch (widget.controller.loadingState.value) {
@@ -551,22 +550,22 @@ class _PdfViewPinchState extends State<PdfViewPinch> with SingleTickerProviderSt
                   valueListenable: page._previewNotifier,
                   builder: (context, value, child) => page.preview != null
                       ? Positioned.fill(
-                          child: PdfTexture(textureId: page.preview!.id),
+                          child: PdfTexturePreview(textureId: page.preview!.id),
                         )
                       : Container(),
                 ),
-                ValueListenableBuilder<int>(
-                  valueListenable: page._realSizeNotifier,
-                  builder: (context, value, child) => page.realSizeOverlayRect != null && page.realSize != null
-                      ? Positioned(
-                          left: page.realSizeOverlayRect!.left,
-                          top: page.realSizeOverlayRect!.top,
-                          width: page.realSizeOverlayRect!.width,
-                          height: page.realSizeOverlayRect!.height,
-                          child: PdfTexture(textureId: page.realSize!.id),
-                        )
-                      : Container(),
-                ),
+                // ValueListenableBuilder<int>(
+                //   valueListenable: page._realSizeNotifier,
+                //   builder: (context, value, child) => page.realSizeOverlayRect != null && page.realSize != null
+                //       ? Positioned(
+                //           left: page.realSizeOverlayRect!.left,
+                //           top: page.realSizeOverlayRect!.top,
+                //           width: page.realSizeOverlayRect!.width,
+                //           height: page.realSizeOverlayRect!.height,
+                //           child: Container(color: Colors.red, child: PdfTexture(textureId: page.realSize!.id)),
+                //         )
+                //       : Container(),
+                // ),
               ],
             ),
           ),

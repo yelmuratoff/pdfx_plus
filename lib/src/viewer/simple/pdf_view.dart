@@ -68,7 +68,7 @@ class PdfView extends StatefulWidget {
   static Future<PdfPageImage?> _render(PdfPage page) => page.render(
         width: page.width * 2,
         height: page.height * 2,
-        format: PdfPageImageFormat.jpeg,
+        format: PdfPageImageFormat.webp,
         backgroundColor: '#ffffff',
       );
 

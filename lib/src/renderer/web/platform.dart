@@ -140,7 +140,7 @@ class PdfPageWeb extends PdfPage {
   Future<PdfPageImage?> render({
     required double width,
     required double height,
-    PdfPageImageFormat format = PdfPageImageFormat.png,
+    PdfPageImageFormat format = PdfPageImageFormat.webp,
     String? backgroundColor,
     Rect? cropRect,
     int quality = 100,
@@ -198,6 +198,7 @@ class PdfPageImageWeb extends PdfPageImage {
     required this.pdfJsPage,
     required PdfPageImageFormat format,
     required int quality,
+    required Rect rect,
   }) : super(
           id: id,
           pageNumber: pageNumber,
@@ -206,6 +207,7 @@ class PdfPageImageWeb extends PdfPageImage {
           bytes: bytes,
           format: format,
           quality: quality,
+          rect: rect,
         );
 
   final PdfjsPage pdfJsPage;
@@ -261,15 +263,15 @@ class PdfPageImageWeb extends PdfPageImage {
     await completer.future;
 
     return PdfPageImageWeb(
-      id: pageId,
-      pageNumber: pageNumber,
-      width: width,
-      height: height,
-      bytes: data,
-      format: format,
-      quality: quality,
-      pdfJsPage: pdfJsPage,
-    );
+        id: pageId,
+        pageNumber: pageNumber,
+        width: width,
+        height: height,
+        bytes: data,
+        format: format,
+        quality: quality,
+        pdfJsPage: pdfJsPage,
+        rect: crop ?? Rect.fromLTWH(0, 0, width.toDouble(), height.toDouble()));
   }
 
   @override

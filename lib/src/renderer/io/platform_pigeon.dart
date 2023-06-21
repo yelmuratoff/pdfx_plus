@@ -205,23 +205,24 @@ class PdfPagePigeon extends PdfPage {
 }
 
 class PdfPageImagePigeon extends PdfPageImage {
-  PdfPageImagePigeon({
-    required String? id,
-    required int pageNumber,
-    required int? width,
-    required int? height,
-    required Uint8List bytes,
-    required PdfPageImageFormat format,
-    required int quality,
-  }) : super(
-          id: id,
-          pageNumber: pageNumber,
-          width: width,
-          height: height,
-          bytes: bytes,
-          format: format,
-          quality: quality,
-        );
+  PdfPageImagePigeon(
+      {required String? id,
+      required int pageNumber,
+      required int? width,
+      required int? height,
+      required Uint8List bytes,
+      required PdfPageImageFormat format,
+      required int quality,
+      required Rect rect})
+      : super(
+            id: id,
+            pageNumber: pageNumber,
+            width: width,
+            height: height,
+            bytes: bytes,
+            format: format,
+            quality: quality,
+            rect: rect);
 
   /// Render a full image of specified PDF file.
   ///
@@ -282,14 +283,14 @@ class PdfPageImagePigeon extends PdfPageImage {
     }
 
     return PdfPageImagePigeon(
-      id: pageId,
-      pageNumber: pageNumber,
-      width: retWidth,
-      height: retHeight,
-      bytes: pixels,
-      format: format,
-      quality: quality,
-    );
+        id: pageId,
+        pageNumber: pageNumber,
+        width: retWidth,
+        height: retHeight,
+        bytes: pixels,
+        format: format,
+        quality: quality,
+        rect: crop ?? Rect.fromLTWH(0, 0, retWidth!.toDouble(), retHeight!.toDouble()));
   }
 
   @override

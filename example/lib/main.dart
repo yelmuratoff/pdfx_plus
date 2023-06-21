@@ -19,6 +19,6 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.white, useMaterial3: true),
         darkTheme: ThemeData.dark(),
-        home: UniversalPlatform.isWindows ? const SimplePage() : const PinchPage(),
+        home: true ? const SimplePage() : const PinchPage(),
       );
 }

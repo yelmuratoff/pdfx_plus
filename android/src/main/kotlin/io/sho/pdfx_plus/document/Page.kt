@@ -1,5 +1,5 @@
 package io.sho.pdfx_plus.document
-
+import android.graphics.Color
 import android.annotation.TargetApi
 import android.graphics.Bitmap
 import android.graphics.pdf.PdfRenderer
@@ -38,7 +38,7 @@ class Page(
             width,
             height,
             Bitmap.Config.ARGB_8888)
-        bitmap.eraseColor(background)
+        bitmap.eraseColor(Color.WHITE)
         val mode = if (forPrint) PdfRenderer.Page.RENDER_MODE_FOR_PRINT else PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY
         pageRenderer.render(bitmap, null, null, mode)
 

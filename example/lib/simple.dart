@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdfx_plus/pdf_view.dart';
 
-
 class SimplePage extends StatefulWidget {
   const SimplePage({Key? key}) : super(key: key);
 
@@ -10,7 +9,7 @@ class SimplePage extends StatefulWidget {
 }
 
 class _SimplePageState extends State<SimplePage> {
-  static const int _initialPage = 2;
+  static const int _initialPage = 1;
   bool _isSampleDoc = true;
   late PdfController _pdfController;
 
@@ -18,7 +17,7 @@ class _SimplePageState extends State<SimplePage> {
   void initState() {
     super.initState();
     _pdfController = PdfController(
-      document: PdfDocument.openAsset('assets/hello.pdf'),
+      document: PdfDocument.openAsset('assets/ttf.pdf'),
       initialPage: _initialPage,
     );
   }
@@ -67,17 +66,15 @@ class _SimplePageState extends State<SimplePage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
-              if (_isSampleDoc) {
-                _pdfController.loadDocument(PdfDocument.openAsset('assets/flutter_tutorial.pdf'));
-              } else {
-                _pdfController.loadDocument(PdfDocument.openAsset('assets/hello.pdf'));
-              }
+              // _pdfController.loadDocument(PdfDocument.openAsset('assets/ttf.pdf'));
+
               _isSampleDoc = !_isSampleDoc;
             },
           ),
         ],
       ),
       body: PdfView(
+        scrollDirection: Axis.vertical,
         builders: PdfViewBuilders<DefaultBuilderOptions>(
           options: const DefaultBuilderOptions(),
           documentLoaderBuilder: (_) => const Center(child: CircularProgressIndicator()),
@@ -102,7 +99,7 @@ class _SimplePageState extends State<SimplePage> {
         document.id,
       ),
       minScale: PhotoViewComputedScale.contained * 1,
-      maxScale: PhotoViewComputedScale.contained * 2,
+      maxScale: PhotoViewComputedScale.contained * 4,
       initialScale: PhotoViewComputedScale.contained * 1.0,
       heroAttributes: PhotoViewHeroAttributes(tag: '${document.id}-$index'),
     );

@@ -10,6 +10,7 @@ abstract class PdfPageImage {
     required this.bytes,
     required this.format,
     required this.quality,
+    required this.rect,
   });
 
   /// Page unique id. Needed for rendering and closing page.
@@ -33,6 +34,8 @@ abstract class PdfPageImage {
 
   /// Target compression format quality
   final int quality;
+
+  final Rect rect;
 
   @override
   bool operator ==(Object other);
